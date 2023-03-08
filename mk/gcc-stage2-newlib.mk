@@ -24,8 +24,8 @@ extract-body:
 	$(MAKE) -f $(BUILDER_NAME) $@-default
 
 configure-body:
-	cd $(BUILD_DIR) && \
-	$(SRC_DIR)/configure \
+	cd $(BUILD_PATH) && \
+	$(SRC_PATH)/configure \
 	  CFLAGS="-g -O2 -fno-inline $(ARCH_CFLAGS)" \
 	  CXXFLAGS="-g -O2 -fno-inline $(ARCH_CFLAGS)" \
 	  CFLAGS_FOR_TARGET="-g -O2 -fno-inline $(ARCH_CFLAGS_FOR_TARGET)" \
