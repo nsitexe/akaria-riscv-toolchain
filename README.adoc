@@ -1,0 +1,40 @@
+= Akaria RISC-V GNU toolchain
+
+== About
+
+This repository provides some makefiles to build GNU toolchains (binutils, GCC, C libraries) easyly for NSITEXE Akaria RISC-V processors.
+
+If you just want to use GNU toolchains, please download TAR archives from release page.
+
+
+== How to use
+
+[source,sh]
+----
+$ make install
+----
+
+You can specify a PARALLEL option to build more faster if you use multi-core CPU such as:
+
+[source,sh]
+----
+$ make install PARALLEL=16
+----
+
+
+== Toolchains
+
+Currently this repository supports 3 toolchains.
+
+* GCC with newlib
+  ** Directory: riscv64-unknown-elf
+  ** Arch: RV32 and RV64 (rv32i, rv32iac, rv32im, rv32imac, rv32imafc, rv64imac, rv64gc)
+  ** Remarks: Standard C library for baremetal, not support pthreads
+* GCC with GNU libc
+  ** Directory: riscv64-unknown-linux-gnu
+  ** Arch: RV32 and RV64 (rv32imac, rv32gc, rv64imac, rv64gc)
+  ** Remarks: Full C library for Linux
+* GCC with musl libc
+  ** Directory: riscv64-unknown-linux-musl
+  ** Arch: RV64 (rv64gc)
+  ** Remarks: Full C library for Linux
