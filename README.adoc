@@ -2,25 +2,32 @@
 
 == About
 
-This repository provides some makefiles to build GNU toolchains (binutils, GCC, C libraries) easyly for NSITEXE Akaria RISC-V processors.
+This repository provides some makefiles to build GNU toolchains (binutils, GCC, C libraries) easily for NSITEXE Akaria RISC-V processors.
 
-If you just want to use GNU toolchains, please download TAR archives from release page.
+If you just want to use GNU toolchains, please download TAR archives from "releases" page.
 
 
 == How to use
+
+Just run "make install".
+This command will download source codes from suitable repositories and configure and build automatically.
+It will take long time (over an hour or more) and need large disk space (> 30GB).
 
 [source,sh]
 ----
 $ make install
 ----
 
-You can specify a PARALLEL option to build more faster if you use multi-core CPU such as:
+You can specify a PARALLEL option to build more faster if you use multi-core CPU.
+In this sample (PARALLEL=16) means that make will invoke up to 16 commands in parallel.
+
 
 [source,sh]
 ----
 $ make install PARALLEL=16
 ----
 
+This command will generate some directories that has name "riscv64-*" if build procedures finished successfully.
 
 == Toolchains
 
@@ -38,3 +45,4 @@ Currently this repository supports 3 toolchains.
   ** Directory: riscv64-unknown-linux-musl
   ** Arch: RV64 (rv64gc)
   ** Remarks: Full C library for Linux
+​
