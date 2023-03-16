@@ -29,6 +29,7 @@ $ make install PARALLEL=16
 
 This command will generate some directories that has name "riscv64-*" if build procedures finished successfully.
 
+
 == Toolchains
 
 Currently this repository supports 3 toolchains.
@@ -45,4 +46,8 @@ Currently this repository supports 3 toolchains.
   ** Directory: riscv64-unknown-linux-musl
   ** Arch: RV64 (rv64gc)
   ** Remarks: Full C library for Linux
-​
+
+
+== Softwares and Licenses
+
+If you want to know list of softwares and it's licenses, please refer xref:softwares.adoc[Softwares].
