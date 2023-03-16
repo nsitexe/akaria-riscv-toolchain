@@ -50,4 +50,4 @@ Currently this repository supports 3 toolchains.
 
 == Softwares and Licenses
 
-If you want to know list of softwares and it's licenses, please refer xref:softwares.adoc[Softwares].
+If you want to know list of softwares and it's licenses, please refer xref:software.adoc[Softwares].
