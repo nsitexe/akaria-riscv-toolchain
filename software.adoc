@@ -1,0 +1,13 @@
+= Softwares and Licenses
+
+== GNU GPL/LGPL
+
+* binutils-gdb
+* riscv-gcc
+* newlib-cygwin
+* glibc
+
+
+== MIT license
+
+* musl
