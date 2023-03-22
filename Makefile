@@ -12,8 +12,8 @@ define make_macro
 	ARCH_CFLAGS_FOR_TARGET=-mcmodel=medany \
 	ARCH_CXXFLAGS_FOR_TARGET=-mcmodel=medany \
 	CROSS_ARCH=$(CROSS) \
-	CROSS_ROOT=$(PWD)/$(CROSS)/ \
-	TOP_DIR=$(PWD)/ \
+	CROSS_ROOT=$(PWD)/$(CROSS) \
+	TOP_DIR=$(PWD) \
 	LINUX_ARCH=riscv \
 	$(MAKE) -f $(MAKEFILE) -C $(PWD)/mk $(TARGET)
 endef
