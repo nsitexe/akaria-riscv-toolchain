@@ -36,7 +36,7 @@ define configure_macro
 	mkdir -p $(BUILD_PATH)_$(MARCH) && cd $(BUILD_PATH)_$(MARCH) && \
 	$(SRC_PATH)/configure \
 	  CC="$(CROSS_ARCH)-gcc -march=$(MARCH) -mabi=$(MABI)" \
-	  CFLAGS="-O2 -g $(ARCH_CFLAGS_FOR_TARGET)" \
+	  CFLAGS="-O2 $(ARCH_CFLAGS_FOR_TARGET)" \
 	  --host=$(CROSS_ARCH) \
 	  --prefix=/usr \
 	  --disable-multilib \

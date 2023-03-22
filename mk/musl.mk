@@ -37,7 +37,7 @@ define configure_macro
 	mkdir -p $(BUILD_PATH)_$(MARCH) && cd $(BUILD_PATH)_$(MARCH) && \
 	$(SRC_PATH)/configure \
 	  CPPFLAGS='$(MSFLOAT)' \
-	  CFLAGS='-O2 -g -mcmodel=medany -march=$(MARCH) -mabi=$(MABI)' \
+	  CFLAGS='-O2 -mcmodel=medany -march=$(MARCH) -mabi=$(MABI)' \
 	  --host=$(CROSS_ARCH) \
 	  --prefix=$(SYSROOT)/usr \
 	  --libdir=$(SYSROOT)/usr/$(MLIBDIR)/$(MABI) \

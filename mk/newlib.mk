@@ -33,8 +33,8 @@ extract-body:
 configure-body:
 	cd $(BUILD_PATH) && \
 	$(SRC_PATH)/configure \
-	  CFLAGS_FOR_TARGET="-O2 -g $(ARCH_CFLAGS_FOR_TARGET)" \
-	  CXXFLAGS_FOR_TARGET="-O2 -g $(ARCH_CXXFLAGS_FOR_TARGET)" \
+	  CFLAGS_FOR_TARGET="-O2 $(ARCH_CFLAGS_FOR_TARGET)" \
+	  CXXFLAGS_FOR_TARGET="-O2 $(ARCH_CXXFLAGS_FOR_TARGET)" \
 	  --target=$(CROSS_ARCH) \
 	  --prefix=$(PREFIX) \
 	  --enable-newlib-io-long-double \

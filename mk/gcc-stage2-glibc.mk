@@ -29,10 +29,10 @@ $(SRC_PATH)/mpc:
 configure-body:
 	cd $(BUILD_PATH) && \
 	$(SRC_PATH)/configure \
-	  CFLAGS="-g -O2 -fno-inline $(ARCH_CFLAGS)" \
-	  CXXFLAGS="-g -O2 -fno-inline $(ARCH_CFLAGS)" \
-	  CFLAGS_FOR_TARGET="-g -O2 -fno-inline $(ARCH_CFLAGS_FOR_TARGET)" \
-	  CXXFLAGS_FOR_TARGET="-g -O2 -fno-inline $(ARCH_CXXFLAGS_FOR_TARGET)" \
+	  CFLAGS="-O2 $(ARCH_CFLAGS)" \
+	  CXXFLAGS="-O2 $(ARCH_CFLAGS)" \
+	  CFLAGS_FOR_TARGET="-O2 $(ARCH_CFLAGS_FOR_TARGET)" \
+	  CXXFLAGS_FOR_TARGET="-O2 $(ARCH_CXXFLAGS_FOR_TARGET)" \
 	  --target=$(CROSS_ARCH) \
 	  --prefix=$(PREFIX) \
 	  --enable-checking=yes \
