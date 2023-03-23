@@ -50,9 +50,9 @@ Currently this repository supports 3 toolchains.
 
 == Release Build
 
-Please refer xref:release.adoc[Release Build] steps and Dockerfiles if you need release packages.
+Please refer xref:doc/release.adoc[Release Build] steps and Dockerfiles if you need release packages.
 
 
 == Softwares and Licenses
 
-If you want to know list of softwares and it's licenses, please refer xref:software.adoc[Softwares].
+If you want to know list of softwares and it's licenses, please refer xref:doc/software.adoc[Softwares].
