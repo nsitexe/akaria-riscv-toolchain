@@ -1,0 +1,35 @@
+= Release Build
+
+This is very simple example for release build.
+
+* Builds Akaria RISC-V toolchain docker image using 16 processes in parallel
+  ** Toolchains are placed in /result directory
+* Creates container from the built toolchain image
+* Copies toolchains from created container
+
+[source,sh]
+----
+# docker build -f docker/Dockerfile_ubuntu20 -t ubuntu_tool:20.04 --build-arg PARALLEL=16 --build-arg PARALLELMFLAGS=-j16
+
+# docker create ubuntu_tool:20.04
+(Show the container_id)
+
+# sudo docker cp container_id:/result ./
+----
+
+== Options
+
+This section describes options that are used in the examples.
+For more details, please refer official documents of docker CLI.
+
+* -t tag_name:tag_version
+  ** You can use any tag name (ubuntu_tool in this example) and tag version (20.04 in this example) as you like.
+It is easy to recognize docker image after build.
+* --build-arg argument
+  ** Pass the argument into the docker container.
+  ** PARALLEL
+    *** Number of processes for parallel build.
+    Build system will use 1 if this argument is missing.
+  ** PARALLELMFLAGS
+    *** Makeflags for GNU libc build.
+    Unlike PARALLEL, this is not a number, need to specify options of make like as "-j8".

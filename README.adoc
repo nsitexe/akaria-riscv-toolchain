@@ -48,6 +48,11 @@ Currently this repository supports 3 toolchains.
   ** Remarks: Full C library for Linux
 
 
+== Release Build
+
+Please refer xref:release.adoc[Release Build] steps and Dockerfiles if you need release packages.
+
+
 == Softwares and Licenses
 
 If you want to know list of softwares and it's licenses, please refer xref:software.adoc[Softwares].
