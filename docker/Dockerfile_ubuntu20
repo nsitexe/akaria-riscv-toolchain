@@ -1,0 +1,45 @@
+# Usage:
+#  docker build -f file -t tagname:tagversion .
+#
+# Please specify environment variable by --build-arg var=value:
+#
+# http_proxy=xxx
+#   Proxy address.
+#
+# PARALLEL=num
+#   Enable parallel build using 'num' processes simultaneously.
+
+FROM ubuntu:20.04
+
+ARG PARALLEL
+ARG PARALLELMFLAGS
+
+RUN apt-get update && apt-get -y dist-upgrade
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install tzdata
+RUN apt-get -y install git gcc g++ make curl texinfo gawk flex bison \
+    device-tree-compiler autoconf automake unzip help2man \
+    expat libmpc-dev libgmp-dev libmpfr-dev libncurses-dev \
+    libtool libtool-bin python3-dev rsync install-info
+
+RUN git clone https://github.com/nsitexe/akaria-riscv-toolchain && \
+    cd /akaria-riscv-toolchain && \
+    make install && \
+    mkdir -p /result && \
+    mv riscv64-unknown-elf \
+        riscv64-unknown-linux-gnu \
+        riscv64-unknown-linux-musl \
+        /result/ && \
+    rm -rf /akaria-riscv-toolchain/
+
+RUN cd /result/ && \
+    strip --strip-unneeded */bin/* ; \
+    strip --strip-unneeded */libexec/gcc/*/12.0.1/* ; \
+    tar czf riscv64-unknown-elf_ubuntu20.tar.gz \
+        riscv64-unknown-elf/ && \
+    tar czf riscv64-unknown-linux-gnu_ubuntu20.tar.gz \
+        riscv64-unknown-linux-gnu/ && \
+    tar czf riscv64-unknown-linux-musl_ubuntu20.tar.gz \
+        riscv64-unknown-linux-musl/ && \
+    rm -rf riscv64-unknown-elf \
+        riscv64-unknown-linux-gnu \
+        riscv64-unknown-linux-musl
