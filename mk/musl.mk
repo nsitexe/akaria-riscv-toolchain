@@ -27,16 +27,13 @@ include common.mk
 MARCH_LIST   ?= rv64gc rv64imac rv32gc rv32imac
 MABI_LIST    ?= lp64d lp64 ilp32d ilp32
 MLIBDIR_LIST ?= lib64 lib64 lib32 lib32
-MSFLOAT_LIST ?= -D__riscv_hard_float -D__riscv_soft_float -D__riscv_hard_float -D__riscv_soft_float
 
 define configure_macro
 	$(eval MARCH   = $(word $(1),$(MARCH_LIST)))
 	$(eval MABI    = $(word $(1),$(MABI_LIST)))
 	$(eval MLIBDIR = $(word $(1),$(MLIBDIR_LIST)))
-	$(eval MSFLOAT = $(word $(1),$(MSFLOAT_LIST)))
 	mkdir -p $(BUILD_PATH)_$(MARCH) && cd $(BUILD_PATH)_$(MARCH) && \
 	$(SRC_PATH)/configure \
-	  CPPFLAGS='$(MSFLOAT)' \
 	  CFLAGS='-O2 -mcmodel=medany -march=$(MARCH) -mabi=$(MABI)' \
 	  --host=$(CROSS_ARCH) \
 	  --prefix=$(SYSROOT)/usr \
