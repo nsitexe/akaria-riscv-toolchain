@@ -57,8 +57,7 @@ configure-body: $(SRC_PATH)/mpc
 	  --without-headers \
 	  --with-local-prefix=$(SYSROOT) \
 	  --with-newlib \
-	  --with-sysroot=$(SYSROOT) \
-	  --with-pkgversion="testtest"
+	  --with-sysroot=$(SYSROOT)
 
 build-body:
 	$(MAKE) -C $(BUILD_PATH) all-gcc
